@@ -1,0 +1,37 @@
+Integer Xpos
+Integer Ypos
+
+Function task_three
+'pick and place facil	
+
+Tool 0
+
+For Xpos = 0 To 2
+	For Ypos = 0 To 1
+		pick_pnp()
+		place_pnp()
+	Next Ypos
+Next Xpos
+
+Home
+	
+Fend
+Function pick_pnp
+	
+	Go tray1 +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /1
+	Move tray1 +X(Xpos * 30) +Y(Ypos * 30) /1
+	On 12
+	Wait 0.5
+	Move tray1 +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /1
+	
+Fend
+Function place_pnp
+	
+	Go tray2 +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /1
+	Move tray2 +X(Xpos * 30) +Y(Ypos * 30) /1
+	Off 12
+	Wait 0.5
+	Move tray2 +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /1
+	
+Fend
+
