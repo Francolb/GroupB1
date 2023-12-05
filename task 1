@@ -22,28 +22,28 @@ Home
 Fend
 Function pick_pnp2()
 		
-	If Ypos = 0 Then feeder = feeder_circle Else feeder = feeder_rectangle
-	Go feeder -Z(30 + 180 - s) /1
-	Move feeder -Z(180 - s) /1
+	If Ypos = 0 Then Go feeder_circle -Z(30 + 180 - s) /1 Else Go feeder_rectangle -Z(30 + 180 - s) /1
+	If Ypos = 0 Then Move feeder_circle -Z(180 - s) /1 Else Move feeder_rectangle -Z(180 - s) /1
 	On 12
 	Wait 0.5
-	Move feeder -Z(30 + 180 - s) /1
+	If Ypos = 0 Then Move feeder_circle -Z(30 + 180 - s) -Y(3) /1 Else Move feeder_rectangle -Z(30 + 180 - s) -Y(3) /1
+	
 	
 Fend
 Function alignment()
 	
-	If Ypos = 0 Then fixture_f = fixture_f_circle And fixture_a = fixture_a_circle Else fixture_f = fixture_f_rectangle And fixture_a = fixture_a_rectangle
-	Move fixture_f -Z(30) /1
-	Go fixture_f /1
-	Go fixture_f +Y(1) /1
-	If Ypos = 1 Then Go fixture_f +X(1) /1
+	If Ypos = 0 Then Move f_circle -Z(30) /1 Else Move f_rectangle -Z(30) /1
+	If Ypos = 0 Then Go f_circle /1 Else Go f_rectangle /1
+	If Ypos = 1 Then Go f_circle +X(2) /1
+	If Ypos = 0 Then Go f_circle +Y(10) /1 Else Go f_rectangle +Y(10) /1
 	Off 12
 	Wait 0.5
-	Go fixture_a -Z(30) /1
-	Go fixture_a /1
+	If Ypos = 0 Then Go a_circle -Z(30) /1 Else Go a_rectangle -Z(30) /1
+	If Ypos = 0 Then Go a_circle /1 Else Go a_rectangle /1
 	On 12
 	Wait 0.5
-	Go fixture_a -Z(30) /1
+	If Ypos = 0 Then Go a_circle -Z(30) /1 Else Go a_rectangle -Z(30) /1
+	
 	
 Fend
 Function place_pnp2()
