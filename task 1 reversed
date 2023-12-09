@@ -1,0 +1,36 @@
+Integer Xpos
+Integer Ypos
+Integer s
+
+Function task_one_reversed
+'pick and place largo en reversa	
+
+Tool 0
+
+For Ypos = 0 To 1
+	s = 0
+	For Xpos = 0 To 2
+		pick_reverse()
+		place_reverse()
+		s = s + 60
+	Next Xpos
+Next Ypos
+
+Home
+	
+Fend
+Function pick_reverse
+	Go tray1 +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /1
+	Move tray1 +X(Xpos * 30) +Y(Ypos * 30) /1
+	On 12
+	Wait 0.5
+	Move tray1 +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /1
+Fend
+
+Function place_reverse
+	If Ypos = 0 Then Go feeder_circle -Z(30 + 180 + s) /1 Else Go feeder_rectangle -Z(30 + 180 + s) /1
+	If Ypos = 0 Then Move feeder_circle -Z(180 + s) /1 Else Move feeder_rectangle -Z(180 + s) /1
+	Off 12
+	Wait 0.5
+	If Ypos = 0 Then Move feeder_circle -Z(30 + 180 + s) -Y(3) /1 Else Move feeder_rectangle -Z(30 + 180 + s) -Y(3) /1
+Fend
