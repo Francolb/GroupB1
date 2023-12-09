@@ -31,5 +31,5 @@ Function place_reverse
 	If Ypos = 0 Then Move feeder_circle -Z(s) /1 Else Move feeder_rectangle -Z(s) /1
 	Off 12
 	Wait 0.5
-	If Ypos = 0 Then Move feeder_circle -Z(30 + s) -Y(3) /1 Else Move feeder_rectangle -Z(30 + s) -Y(3) /1
+	If Ypos = 0 Then Move feeder_circle -Z(30 + s) /1 Else Move feeder_rectangle -Z(30 + s) /1
 Fend
