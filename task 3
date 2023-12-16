@@ -2,7 +2,8 @@ Integer Xpos
 Integer Ypos
 Integer d
 Integer f
-Function task_three_30deg
+Integer j
+Function task_three
 	
 Motor On
 Power High
@@ -21,41 +22,44 @@ rotate_tray()
 
 For Xpos = 0 To 2
 	For Ypos = 0 To 1
-		'check_tokens()
-		pick_pnp30()
-		place_pnp30()
+		check_tokens()
+
+		If j = 1 Then
+			pick_pnp30()
+			place_pnp30()
+		EndIf
 	Next Ypos
 Next Xpos
 
 Go start
 	
 Fend
-Function rotate_tray
+Function rotate_tray()
 	
-	Go Tray2_rotation -Z(30)
-	Go Tray2_rotation +Z(0)
+	Go Tray2_rotation -Z(30) /1
+	Go Tray2_rotation +Z(0) /1
 	On 12
 	Wait 0.5
-	Go Tray2_rotation -Z(10)
-	Go Tray2_rotation -Z(10) +U(45)
-	Go Tray2_rotation +Z(0) +U(45)
+	Go Tray2_rotation -Z(10) /1
+	Go Tray2_rotation -Z(10) +U(45) /1
+	Go Tray2_rotation +Z(0) +U(45) /1
 	Off 12
 	Wait 0.5
-	Go Tray2_rotation -Z(30)
+	Go Tray2_rotation -Z(30) /1
 	
 Fend
 Function check_tokens()
-	Go tray1 +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /1
-	Move tray1 +X(Xpos * 30) +Y(Ypos * 30) /1
+	Go tray1 +X(Xpos * 30.7) +Y(Ypos * 30) -Z(30) /1
+	Go tray1 +X(Xpos * 30.7) +Y(Ypos * 30) +Z(1.2) /1
 	On 12
 	Wait 0.5
-	
+	j = Sw(16)
 Fend
 Function pick_pnp30()
 	
 	
-	If Ypos = 1 And Xpos = 0 Then
-		d = 0.5
+	If Ypos = 1 Then
+		d = 0.4
 	EndIf
 	
 	If Xpos = 1 Then
@@ -66,22 +70,20 @@ Function pick_pnp30()
 		f = 1.5
 	EndIf
 
-	
-	Go tray1 +X(Xpos * 30 - d + f) +Y(Ypos * 30) -Z(30) /1
-	Move tray1 +X(Xpos * 30 - d + f) +Y(Ypos * 30) /1
-	On 12
-	Wait 0.5
-	Move tray1 +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /1
+	Move tray1 +X(Xpos * 30.7 + d) +Y(Ypos * 30) -Z(30) /1
 	
 Fend
 Function place_pnp30()
 	
+	If Ypos = 0 Then
+		d = 1
+	EndIf
 	
-	Go tray2_r +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /2
-	Move tray2_r +X(Xpos * 30) +Y(Ypos * 30) -Z(10) /2
+	
+	Go tray2_r +X(Xpos * 30.7 + d) +Y(Ypos * 30) -Z(30) /2
+	Go tray2_r +X(Xpos * 30.7 + d) +Y(Ypos * 30) -Z(10) /2
 	Off 12
 	Wait 0.5
-	Move tray2_r +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /2
+	Go tray2_r +X(Xpos * 30.7 + d) +Y(Ypos * 30) -Z(30) /2
 	
 Fend
-
