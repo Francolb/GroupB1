@@ -1,0 +1,59 @@
+Integer tdwg
+Integer reverseact
+Function main
+inicio:
+tdwg = 0
+reverseact = 0
+
+
+Motor On
+Power High
+Speed 30
+Accel 30, 30
+SpeedS 500
+AccelS 5000
+Tool 1
+
+Wait Sw(0) = Off
+Do While Sw(0) = Off And Sw(1) = Off
+	If Sw(2) = On Then
+		GoTo drawing
+	EndIf
+Loop
+If Sw(0) = On Then
+Xqt task_three
+Do While Sw(0) = On And Sw(7) = Off
+	If Sw(4) = On Then
+    	Halt task_three
+  	Else
+		Resume task_three
+  	EndIf
+Loop
+Quit task_three
+Off 8
+Wait 5
+Go start
+GoTo inicio
+EndIf
+Xqt task_three_reverse
+Do While Sw(7) = Off And reverseact = 0
+	If Sw(4) = On Then
+    	Halt task_three_reverse
+  	Else
+		Resume task_three_reverse
+  	EndIf
+Loop
+Quit task_three_reverse
+GoTo inicio
+drawing:
+Xqt task_three_dwg
+Do While Sw(7) = Off And tdwg = 0
+	If Sw(4) = On Then
+    	Halt task_three_dwg
+  	Else
+		Resume task_three_dwg
+  	EndIf
+Loop
+Quit task_three_dwg
+GoTo inicio
+Fend
