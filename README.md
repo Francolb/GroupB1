@@ -6,6 +6,11 @@
 
 This documentation provides an overview of the functionalities of a versatile robot capable of executing three distinct tasks. The robot is designed to handle tokens, showcasing adaptability in its operations.
 
+This project was developed using the following:
+
+- **Software**: Epson R5+
+- **Language**: Spel+
+
 ## Team Members
 
 - **Tais Machado**
