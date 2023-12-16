@@ -1,0 +1,119 @@
+Integer Xpos
+Integer Ypos
+Integer d
+Integer f
+Integer j
+
+Function task_three_reverse
+	Motor On
+	Power High
+
+	Speed 30
+
+	Accel 30, 30
+
+	SpeedS 500
+
+	AccelS 5000
+
+	Tool 1
+	
+	
+	For Xpos = 0 To 2
+
+		For Ypos = 0 To 1
+	 		check_tokens_r()
+
+	 		If j = 1 Then
+	 			pick_pnp30_r()
+
+	 			alignment_r()
+	 			place_pnp30_r()
+
+			EndIf 
+
+	 	Next Ypos 
+
+	Next Xpos
+	
+	rotate_tray_r()
+	
+	Go start
+	
+	Fend
+	
+Function rotate_tray_r()
+	Go Tray2_rotation -Z(30) 
+
+	Go Tray2_rotation +Z(0) 
+
+	On 12
+	Wait 0.5 
+
+	Go Tray2_rotation -Z(10) 
+
+	Go Tray2_rotation -Z(10) -U(45) 
+
+	Go Tray2_rotation +Z(0) -U(45)
+	Off 12
+	Wait 0.5
+	Go Tray2_rotation -Z(30)
+Fend
+Function check_tokens_r()
+	Go tray2_r +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /2
+	Go tray2_r +X(Xpos * 30) +Y(Ypos * 30) /2
+	On 12
+	Wait 0.5
+	j = Sw(16)
+Fend
+Function alignment_r()
+	
+	If Ypos = 0 Then
+		Move f_circle -Z(15) /1
+		Go f_circle /1
+		Off 12
+		Wait 0.5
+		Go f_circle +Y(13) /1
+		Go a_circle -Z(15) /1
+		Go a_circle /1
+		On 12
+		Wait 0.5
+		Go a_circle -Z(15) /1
+	
+	Else
+		Move f_rectangle -Z(15) /1
+		Go f_rectangle /1
+		Off 12
+		Wait 0.5
+		Go f_rectangle +Y(12) /1
+		Go f_rectangle -X(3) +Y(12) /1
+		Go a_rectangle -Z(18) /1
+		Go a_rectangle /1
+		On 12
+		Wait 0.5
+		Go a_rectangle -Z(18) /1
+		
+	EndIf
+	
+Fend
+Function pick_pnp30_r()
+	
+	Move tray2_r +X(Xpos * 30) +Y(Ypos * 30) -Z(30) /2
+Fend
+Function place_pnp30_r()
+If Ypos = 1 And Xpos = 0 Then
+		d = 1
+	EndIf
+	
+	If Ypos = 1 And Xpos = 2 Then
+		d = 0.6
+		f = 1
+	EndIf
+	
+	Go tray1 +X(Xpos * 30.7 + d) +Y(Ypos * 30 - f) -Z(15) /1
+	Move tray1 +X(Xpos * 30.7 + d) +Y(Ypos * 30 - f) /1
+	Off 12
+	Wait 0.5
+	Move tray1 +X(Xpos * 30.7 + d) +Y(Ypos * 30 - f) -Z(15) /1
+	Fend
+
