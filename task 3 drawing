@@ -1,0 +1,94 @@
+Function task_three_dwg
+'	Motor On
+'	Power High
+	Speed 30
+'	Accel 30, 30
+'	SpeedS 500
+'	AccelS 5000
+	Tool 1
+	On 11
+	
+	'T
+	Go point_drawing -Z(10)
+	Move point_drawing +Z(0)
+	Move point_drawing +X(30) +Z(0)
+	Move point_drawing +X(30) -Z(10)
+	Move point_drawing +X(15) -Z(10)
+	Move point_drawing +X(15) -Z(0)
+	Move point_drawing +X(15) +Y(30) -Z(0)
+	Move point_drawing +X(15) -Z(10)
+	
+	'A
+	Move point_drawing +X(35) +Y(30) -Z(10)
+	Move point_drawing +X(35) +Y(30) +Z(0)
+	Move point_drawing +X(50) +Y(0) +Z(0)
+	Move point_drawing +X(65) +Y(30) +Z(0)
+	Move point_drawing +X(65) +Y(30) -Z(10)
+	Move point_drawing +X(35) +Y(15) -Z(10)
+	Move point_drawing +X(35) +Y(15) +Z(0)
+	Move point_drawing +X(65) +Y(15) +Z(0)
+	Move point_drawing +X(65) +Y(15) -Z(10)
+	
+	'S
+	Go point_drawing +X(70) +Y(22.5) -Z(10)
+	Move point_drawing +X(70) +Y(22.5) +Z(0)
+ 	Arc Point_drawing +X(85) +Y(30) +Z(0), Point_drawing +X(100) +Y(22.5) +Z(0)
+ 	Arc Point_drawing +X(85) +Y(15) +Z(0), Point_drawing +X(69) +Y(7.5) +Z(0)
+ 	Arc Point_drawing +X(85) +Y(0) +Z(0), Point_drawing +X(100) +Y(7.5) +Z(0)
+ 	Move point_drawing +X(100) +Y(7.5) -Z(10)
+ 	
+ 	'K
+ 	Move point_drawing +X(105) +Y(0) -Z(10)
+ 	Move point_drawing +X(105) +Y(0) +Z(0)
+ 	Move point_drawing +X(105) +Y(30) +Z(0)
+ 	Move point_drawing +X(105) +Y(30) -Z(10)
+ 	Move point_drawing +X(135) +Y(0) -Z(10)
+ 	Move point_drawing +X(135) +Y(0) -Z(0)
+ 	Move point_drawing +X(105) +Y(15) -Z(0)
+ 	Move point_drawing +X(135) +Y(30) -Z(0)
+ 	Move point_drawing +X(135) +Y(30) -Z(10)
+ 	
+ 	'3
+ 	Move point_drawing +X(165) +Y(0) -Z(10)
+ 	Move point_drawing +X(165) +Y(0) -Z(0)
+ 	Move point_drawing +X(195) +Y(0) -Z(0)
+ 	Move point_drawing +X(175) +Y(10) -Z(0)
+ 	Arc Point_drawing +X(195) +Y(20) -Z(0), Point_drawing +X(185) +Y(30) -Z(0)
+ 	Move point_drawing +X(165) +Y(30) +Z(0)
+ 	Move point_drawing +X(165) +Y(30) -Z(10)
+ 	
+ 	'B
+ 	Move point_drawing +X(35 + 30) +Y(40) -Z(10)
+ 	Move point_drawing +X(35 + 30) +Y(40) +Z(0)
+ 	Move point_drawing +X(35 + 30) +Y(70) +Z(0)
+ 	Move point_drawing +X(55 + 30) +Y(70) +Z(0)
+ 	Arc point_drawing +X(65 + 30) +Y(62.5) -Z(0), point_drawing +X(55 + 30) +Y(55) -Z(0)
+ 	Arc point_drawing +X(65 + 30) +Y(47.5) -Z(0), point_drawing +X(55 + 30) +Y(40) -Z(0)
+ 	Move point_drawing +X(35 + 30) +Y(40) +Z(0)
+ 	Move point_drawing +X(35 + 30) +Y(40) -Z(10)
+ 	Move point_drawing +X(35 + 30) +Y(55) -Z(10)
+ 	Move point_drawing +X(35 + 30) +Y(55) +Z(0)
+ 	Move point_drawing +X(55 + 30) +Y(55) +Z(0)
+ 	Move point_drawing +X(55 + 30) +Y(55) -Z(10)
+ 	
+ 	'1
+ 	Move point_drawing +X(77.5 + 30) +Y(47.5) -Z(10)
+ 	Move point_drawing +X(77.5 + 30) +Y(47.5) -Z(0)
+ 	Move point_drawing +X(85 + 30) +Y(40) -Z(0)
+ 	Move point_drawing +X(85 + 30) +Y(70) -Z(0)
+ 	Move point_drawing +X(85 + 30) +Y(70) -Z(10)
+ 	
+ 	Go start -Z(100)
+ 	
+ Fend
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 
+	
+	
+	
