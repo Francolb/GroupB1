@@ -69,3 +69,19 @@ This project was developed using the following:
 ## Drawing and Pick and Place:
 [Task3](https://github.com/Francolb/GroupB1/blob/main/task%203).
 
+# Simulations
+ ## Pick and place:
+[Task1](acavideodeyutub).
+
+## Stacking:
+[Task2](acaelvideo).
+
+## Drawing and Pick and Place:
+[Task3](linkdelvideo).
+
+# ME Files
+## [STL Files](linkdelmaera).
+
+# EE
+
+
