@@ -28,13 +28,13 @@ This documentation provides an overview of the functionalities of a versatile ro
 4. **Tray Placement:**
    - Aligned tokens are methodically placed on a tray.
 
-## Task 2: Unconventional Token Stacking
+## Task 2: Token Stacking
 
 1. **Token Pickup:**
    - The robot collects tokens from two trays.
 
 2. **Stacking:**
-   - Tokens are stacked in a deliberately messy and unaligned manner, demonstrating the robot's capability to handle disorder.
+   - Tokens are stacked 
 
 ## Task 3: Tray Adjustment and Drawing
 
